@@ -1,16 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { MenuIcon } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const Header = () => {
 	return (
-		<Card className="bg-[#141518]">
+		<Card>
 			<CardContent className="p-5 justify-between items-center flex flex-row">
-				<Image src="/logo.png" alt="FSW Barber" height={22} width={120} />
-				<Button variant="outline" size="icon" className="h-8 w-8">
-					<MenuIcon size={16} />
-				</Button>
+				<Image src="/logo.png" alt="FSW Barber" height={18} width={120} />
+				<Sheet>
+					<SheetTrigger asChild>
+						<Button variant="outline" size="icon">
+							<MenuIcon size={16} />
+						</Button>
+					</SheetTrigger>
+
+					<SheetContent className="p-0"></SheetContent>
+				</Sheet>
 			</CardContent>
 		</Card>
 	);

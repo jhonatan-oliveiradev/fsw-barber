@@ -1,12 +1,12 @@
 import { cn } from "../_lib/utils";
 
 interface DefaultContainerProps {
-	className?: string;
-	children: React.ReactNode;
+  className?: string;
+  children: React.ReactNode;
 }
 
 const DefaultContainer = ({ children, className }: DefaultContainerProps) => {
-	return <div className={cn("px-5 mt-5", className)}>{children}</div>;
+  return <section className={cn("mt-5 px-5", className)}>{children}</section>;
 };
 
 export default DefaultContainer;

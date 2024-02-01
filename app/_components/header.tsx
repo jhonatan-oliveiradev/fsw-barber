@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const Header = () => {
 	return (
-		<Card>
+		<Card className="rounded-none">
 			<CardContent className="p-5 justify-between items-center flex flex-row">
 				<Image src="/logo.png" alt="FSW Barber" height={18} width={120} />
 				<Sheet>

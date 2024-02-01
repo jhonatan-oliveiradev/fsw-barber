@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import Header from "./_components/header";
+import Header from "../_components/header";
 
 export default function Home() {
 	return (

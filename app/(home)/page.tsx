@@ -2,12 +2,15 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import Header from "../_components/header";
 import Search from "./_components/search";
+import BookingItem from "../_components/booking-item";
+import DefaultContainer from "../_components/default-container";
+import SectionTitle from "../_components/section-title";
 
 export default function Home() {
 	return (
 		<div>
 			<Header />
-			<div className="px-5 pt-5">
+			<DefaultContainer>
 				<h2 className="text-xl">
 					Olá, <span className="font-bold">Jhonatan</span>!
 				</h2>
@@ -16,10 +19,14 @@ export default function Home() {
 						locale: ptBR
 					})}
 				</p>
-			</div>
-			<div className="px-5 mt-6">
+			</DefaultContainer>
+			<DefaultContainer>
 				<Search />
-			</div>
+			</DefaultContainer>
+			<DefaultContainer>
+				<SectionTitle title="Agendamentos" />
+				<BookingItem />
+			</DefaultContainer>
 		</div>
 	);
 }

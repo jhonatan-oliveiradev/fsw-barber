@@ -7,22 +7,22 @@ import { MenuIcon } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const Header = () => {
-	return (
-		<Card className="rounded-none">
-			<CardContent className="p-5 justify-between items-center flex flex-row">
-				<Image src="/logo.png" alt="FSW Barber" height={18} width={120} />
-				<Sheet>
-					<SheetTrigger asChild>
-						<Button variant="outline" size="icon">
-							<MenuIcon size={16} />
-						</Button>
-					</SheetTrigger>
+  return (
+    <Card className="rounded-none">
+      <CardContent className="p-5 justify-between items-center flex flex-row">
+        <Image src="/logo.png" alt="FSW Barber" height={18} width={120} />
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon">
+              <MenuIcon size={16} />
+            </Button>
+          </SheetTrigger>
 
-					<SheetContent className="p-0"></SheetContent>
-				</Sheet>
-			</CardContent>
-		</Card>
-	);
+          <SheetContent className="p-0"></SheetContent>
+        </Sheet>
+      </CardContent>
+    </Card>
+  );
 };
 
 export default Header;

@@ -38,7 +38,7 @@ export default async function Home() {
         </DefaultContainer>
         <DefaultContainer>
           <SectionTitle title="Recomendados" />
-          <div className="flex gap-4 overflow-x-auto px-5 [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
             {barbershops.map((barbershop) => (
               <BarbershopItem key={barbershop.id} barbershop={barbershop} />
             ))}
@@ -46,7 +46,7 @@ export default async function Home() {
         </DefaultContainer>
         <DefaultContainer className="mb-[4.5rem]">
           <SectionTitle title="Populares" />
-          <div className="flex gap-4 overflow-x-auto px-5 [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
             {barbershops.map((barbershop) => (
               <BarbershopItem key={barbershop.id} barbershop={barbershop} />
             ))}

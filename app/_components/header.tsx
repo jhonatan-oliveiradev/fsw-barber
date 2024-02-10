@@ -24,13 +24,14 @@ const Header = () => {
               <MenuIcon size={16} />
             </Button>
           </SheetTrigger>
-          {/* {data?.user ? (
-            <Button onClick={() => signOut()}>Logout</Button>
-          ) : (
-            <Button onClick={handleLoginClick}>Entrar</Button>
-          )} */}
 
-          <SheetContent className="p-0"></SheetContent>
+          <SheetContent className="p-0">
+            {data?.user ? (
+              <Button onClick={() => signOut()}>Logout</Button>
+            ) : (
+              <Button onClick={handleLoginClick}>Entrar</Button>
+            )}
+          </SheetContent>
         </Sheet>
       </CardContent>
     </Card>

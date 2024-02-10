@@ -8,6 +8,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "../../_components/ui/tabs";
+import { getServerSession } from "next-auth";
 
 interface BarbershopDetailsPageProps {
   params: {
@@ -16,6 +17,8 @@ interface BarbershopDetailsPageProps {
 }
 
 async function BarbershopDetailsPage({ params }: BarbershopDetailsPageProps) {
+  const session = await getServerSession();
+
   if (!params.id) return null;
 
   const barbershop = await db.barbershop.findUnique({
@@ -41,12 +44,20 @@ async function BarbershopDetailsPage({ params }: BarbershopDetailsPageProps) {
           </TabsList>
           <TabsContent value="services">
             {barbershop.services.map((service) => (
-              <ServiceItem key={service.id} service={service} />
+              <ServiceItem
+                isAuthenticated={!!session?.user}
+                key={service.id}
+                service={service}
+              />
             ))}
           </TabsContent>
           <TabsContent value="information">
             {barbershop.services.map((service) => (
-              <ServiceItem key={service.id} service={service} />
+              <ServiceItem
+                isAuthenticated={!!session?.user}
+                key={service.id}
+                service={service}
+              />
             ))}
           </TabsContent>
         </Tabs>

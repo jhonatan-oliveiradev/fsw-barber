@@ -4,13 +4,7 @@ import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { MenuIcon } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import SideMenu from "./side-menu";
 
 const Header = () => {
@@ -26,9 +20,6 @@ const Header = () => {
           </SheetTrigger>
 
           <SheetContent className="p-0">
-            <SheetHeader className="border-b border-solid border-secondary p-5 text-left">
-              <SheetTitle>Menu</SheetTitle>
-            </SheetHeader>
             <SideMenu />
           </SheetContent>
         </Sheet>

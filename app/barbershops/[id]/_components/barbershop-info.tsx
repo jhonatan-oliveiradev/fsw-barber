@@ -5,6 +5,8 @@ import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import { Barbershop } from "@prisma/client";
 import { useRouter } from "next/navigation";
+import { Sheet, SheetContent, SheetTrigger } from "@/app/_components/ui/sheet";
+import SideMenu from "@/app/_components/side-menu";
 
 interface BarbershopInfoProps {
   barbershop: Barbershop;
@@ -28,13 +30,23 @@ const BarbershopInfo = ({ barbershop }: BarbershopInfoProps) => {
         >
           <ChevronLeftIcon />
         </Button>
-        <Button
-          className="absolute right-4 top-4 z-50"
-          size="icon"
-          variant="outline"
-        >
-          <MenuIcon />
-        </Button>
+
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              className="absolute right-4 top-4 z-50"
+              size="icon"
+              variant="outline"
+            >
+              <MenuIcon />
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent className="p-0">
+            <SideMenu />
+          </SheetContent>
+        </Sheet>
+
         <Image
           src={barbershop.imageUrl}
           fill

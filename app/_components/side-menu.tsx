@@ -11,6 +11,7 @@ import {
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { SheetHeader, SheetTitle } from "./ui/sheet";
 
 const SideMenu = () => {
   const { data } = useSession();
@@ -21,6 +22,9 @@ const SideMenu = () => {
 
   return (
     <>
+      <SheetHeader className="border-b border-solid border-secondary p-5 text-left">
+        <SheetTitle>Menu</SheetTitle>
+      </SheetHeader>
       {data?.user ? (
         <div className="flex w-full items-center justify-between px-5 py-6">
           <div className="flex w-full items-center gap-2">

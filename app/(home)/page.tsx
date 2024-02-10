@@ -8,6 +8,7 @@ import SectionTitle from "../_components/section-title";
 import BarbershopItem from "./_components/barbershop-item";
 import { db } from "../_lib/prisma";
 import Footer from "../_components/footer";
+import WelcomeMessage from "../_components/welcome-message";
 
 export default async function Home() {
   // chamar prisma e pegar barbearias
@@ -20,9 +21,7 @@ export default async function Home() {
       </header>
       <main>
         <DefaultContainer>
-          <h2 className="text-xl">
-            Olá, <span className="font-bold">Jhonatan</span>!
-          </h2>
+          <WelcomeMessage />
           <p className="text-sm capitalize">
             {format(new Date(), "EEEE',' dd 'de' MMMM", {
               locale: ptBR,

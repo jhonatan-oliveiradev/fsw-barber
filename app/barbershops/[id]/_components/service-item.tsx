@@ -1,10 +1,20 @@
 "use client";
 
 import { Button } from "@/app/_components/ui/button";
+import { Calendar } from "@/app/_components/ui/calendar";
 import { Card, CardContent } from "@/app/_components/ui/card";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/app/_components/ui/sheet";
 import { Service } from "@prisma/client";
+import { ptBR } from "date-fns/locale";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { useState } from "react";
 
 interface ServiceItemProps {
   service: Service;
@@ -12,11 +22,12 @@ interface ServiceItemProps {
 }
 
 const ServiceItem = ({ service, isAuthenticated }: ServiceItemProps) => {
-  const handleBookingClick = () => {
-    if (!isAuthenticated) {
-      return signIn("google");
-    }
+  const [date, setDate] = useState<Date | undefined>(new Date());
 
+  const handleBookingClick = () => {
+    // if (!isAuthenticated) {
+    //   return signIn("google");
+    // }
     // TODO: abrir modal de agendamento
   };
 
@@ -44,9 +55,49 @@ const ServiceItem = ({ service, isAuthenticated }: ServiceItemProps) => {
                   currency: "BRL",
                 }).format(Number(service.price))}
               </p>
-              <Button variant="secondary" onClick={handleBookingClick}>
-                Reservar
-              </Button>
+
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="secondary" onClick={handleBookingClick}>
+                    Reservar
+                  </Button>
+                </SheetTrigger>
+
+                <SheetContent className="p-0">
+                  <SheetHeader className="border-b border-solid border-secondary px-5 py-6 text-left">
+                    <SheetTitle>Fazer reserva</SheetTitle>
+                  </SheetHeader>
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    locale={ptBR}
+                    styles={{
+                      head_cell: {
+                        width: "100%",
+                        textTransform: "capitalize",
+                      },
+                      cell: {
+                        width: "100%",
+                      },
+                      button: {
+                        width: "100%",
+                      },
+                      nav_button_previous: {
+                        width: "32px",
+                        height: "32px",
+                      },
+                      nav_button_next: {
+                        width: "32px",
+                        height: "32px",
+                      },
+                      caption: {
+                        textTransform: "capitalize",
+                      },
+                    }}
+                  />
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>

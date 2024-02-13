@@ -138,7 +138,7 @@ const ServiceItem = ({
   }, [date, dayBookings]);
 
   return (
-    <Card>
+    <Card className="mb-3">
       <CardContent className="w-full p-3">
         <div className="flex w-full items-center gap-4">
           <div className="relative max-h-[110px] min-h-[110px] min-w-[110px] max-w-[110px]">

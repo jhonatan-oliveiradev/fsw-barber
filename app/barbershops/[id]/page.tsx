@@ -45,9 +45,10 @@ async function BarbershopDetailsPage({ params }: BarbershopDetailsPageProps) {
           <TabsContent value="services">
             {barbershop.services.map((service) => (
               <ServiceItem
-                isAuthenticated={!!session?.user}
                 key={service.id}
+                isAuthenticated={!!session?.user}
                 service={service}
+                barbershop={barbershop}
               />
             ))}
           </TabsContent>
@@ -57,6 +58,7 @@ async function BarbershopDetailsPage({ params }: BarbershopDetailsPageProps) {
                 isAuthenticated={!!session?.user}
                 key={service.id}
                 service={service}
+                barbershop={barbershop}
               />
             ))}
           </TabsContent>
